@@ -1,4 +1,3 @@
-package litrove;
 import java.util.Scanner;
 
 public class Application{
