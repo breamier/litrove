@@ -9,5 +9,8 @@ public class DefaultFrame extends JFrame{
         this.setLayout(new BorderLayout());  
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
         this.setVisible(true);  
+
+        ImageIcon image = new ImageIcon("icon.png");
+        this.setIconImage(image.getImage());
     }
 }
