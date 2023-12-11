@@ -14,13 +14,12 @@ public class ActionButtons extends JPanel{
         viewThoughts.addActionListener(e -> changeScreen("viewThoughts"));
 
 
-
         setLayout(new FlowLayout());
         add(addLit);
         add(viewLit);
         add(viewThoughts);
         add(exit);
-        setPreferredSize(new Dimension(500,50));
+        setPreferredSize(new Dimension(80,500));
         setBackground(Color.GRAY);
         
     }
@@ -28,18 +27,10 @@ public class ActionButtons extends JPanel{
     public void changeScreen(String screen){
         switch (screen) {
             case "addLit":
-                System.out.println("Add Literature Pressed");
-                AddLitScreen addLit = new AddLitScreen();
-                addLit.startScreen();
+                AddLiteratureScreen addLit = new AddLiteratureScreen();
                 break;
-            case "viewLit":
-                System.out.println("View Literature Pressed");
-                break;
-            case "viewThoughts":
-                System.out.println("View Thougts Pressed");
-                break;
-            case "exit":
-
+        
+            default:
                 break;
         }
     }
