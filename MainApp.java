@@ -1,4 +1,3 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -29,7 +28,7 @@ public class MainApp extends JFrame{
         actions.add(viewLit);
         actions.add(viewThoughts);
         actions.add(exit);
-        actions.setPreferredSize(new Dimension(150, 50));
+
         actions.setBackground(Color.GRAY);
 
 
