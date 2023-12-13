@@ -10,7 +10,9 @@ public class FileIOManager {
     public static void newBook(Book book) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(PATH_BOOKS, true))) {
             writer.println(
-                    book.getTitle() + "," + book.getAuthor() + "," + book.getPublisher() + "," + book.getGenre());
+                    book.getTitle() + "|" + book.getAuthor() + "|" + book.getPublisher() + "|"
+                            + book.getGenre() + "|" + book.getStatus() + "|" + book.getRating() + "|"
+                            + book.getReflection());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -22,12 +24,15 @@ public class FileIOManager {
         try (BufferedReader reader = new BufferedReader(new FileReader(PATH_BOOKS))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
+                String[] parts = line.split("\\|");
                 Book book = new Book();
                 book.setTitle(parts[0]);
                 book.setAuthor(parts[1]);
                 book.setPublisher(parts[2]);
                 book.setGenre(parts[3]);
+                book.setStatus(parts[4]);
+                book.setRating(parts[5]);
+                book.setReflection(parts[6]);
                 books.add(book);
             }
         } catch (IOException e) {
@@ -50,7 +55,8 @@ public class FileIOManager {
         try (PrintWriter writer = new PrintWriter(new FileWriter(PATH_BOOKS))) {
             for (Book book : updateBooks) {
                 writer.println(
-                        book.getTitle() + "," + book.getAuthor() + "," + book.getPublisher() + "," + book.getGenre());
+                        book.getTitle() + "|" + book.getAuthor() + "|" + book.getPublisher() + "|" + book.getGenre()
+                                + "|" + book.getStatus() + "|" + book.getRating() + "|" + book.getReflection());
             }
         } catch (IOException e) {
             e.printStackTrace();
