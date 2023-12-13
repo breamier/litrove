@@ -10,7 +10,7 @@ public class HomeScreen{
         DefaultFrame home = new DefaultFrame("Home Screen");
         JPanel textPanel = new JPanel();
         JLabel titleText = new JLabel();
-        Image image = ImageIO.read(getClass().getResource("MyImage.jpg"));
+        Image image = ImageIO.read(getClass().getResource("icon.png"));
         JLabel label = new JLabel(new ImageIcon(image));
         textPanel.add(label);
 

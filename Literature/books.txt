@@ -1,1 +1,2 @@
-Harry Potter,J.K. Rowling,ABS Company,Fiction
+wee, waa, woo|weewaa|wow|wieie
+hello,red,true,field
