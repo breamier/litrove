@@ -3,6 +3,9 @@ public class Book {
     private String author;
     private String publisher;
     private String genre;
+    private String status;
+    private String rating;
+    private String reflection;
 
     // Getter Methods
     public String getTitle() {
@@ -21,6 +24,18 @@ public class Book {
         return genre;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public String getReflection() {
+        return reflection;
+    }
+
     // Setter methods
     public void setTitle(String title) {
         this.title = title;
@@ -36,5 +51,17 @@ public class Book {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public void setReflection(String reflection) {
+        this.reflection = reflection;
     }
 }
