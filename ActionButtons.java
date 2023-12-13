@@ -27,7 +27,7 @@ public class ActionButtons extends JPanel {
     public void changeScreen(String screen) {
         switch (screen) {
             case "addLit":
-                AddLiteratureScreen addLit = new AddLiteratureScreen();
+
                 break;
             case "exit":
         
