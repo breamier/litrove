@@ -4,19 +4,20 @@ import java.io.IOException;
 
 public class AddLiteraturePanel extends JPanel{
     private JComboBox<String> litType;
-    private String[] types = {"Book","Movie","Article","Academic Article","Series","Podcast"};
+    private String[] types = {"Book","Movie","Article","Academic Article","Podcast"};
+    private int size = types.length;
     public AddLiteraturePanel() throws IOException{
-        //JPanel buttons = new JPanel();
         setLayout(new GridLayout(2,1));
+        LiteraturePanel lit = new LiteraturePanel();
+        LiteraturePanel[] litPanels= new LiteraturePanel[size];
         CardPanel cards = new CardPanel();
         litType = new JComboBox<String>(types);
         litType.addActionListener(e -> cards.showCard(litType.getSelectedItem()+""));
 
-        BookPanel book = new BookPanel();
-        MoviePanel movie = new MoviePanel();
-
-        cards.addCard(book,types[0]);
-        cards.addCard(movie,types[1]); 
+        for(int i = 0; i <size;i++){
+            litPanels[i] = lit.generatePanel(types[i]);
+            cards.addCard(litPanels[i],types[i]);
+        }   
         add(litType);
         add(cards);
 

@@ -8,7 +8,6 @@ public class CardPanel extends JPanel{
 
     public CardPanel() throws IOException{
         cl = new CardLayout();
-        setSize(300,150);
         setLayout(cl);      
     }
 
