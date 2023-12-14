@@ -5,8 +5,10 @@ import java.util.Scanner;
 // We need a List that contains all existing / updated books (onf for books,podcast,etc.)
 public class Main {
     
-    List<Book> books = FileIOManager.readBooks();
+    List<Literature> books = FileIOManager.readLiterature("Books");
+    List<Literature> podcast = Fil
     
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -14,32 +16,14 @@ public class Main {
             System.out.println("What to do? add/delete/exit: ");
             String choice = scanner.nextLine();
             if (choice.equals("add")) {
-                // Save a Book
-                // Book book = new Book();
-                // System.out.print("Title: ");
-                // String bookTitle = scanner.nextLine();
-                // book.setTitle(bookTitle);
-                // System.out.print("Author: ");
-                // book.setAuthor(scanner.nextLine());
-                // System.out.print("Publisher: ");
-                // book.setPublisher(scanner.nextLine());
-                // System.out.print("Genre: ");
-                // book.setGenre(scanner.nextLine());
-                // System.out.print("Status: ");
-                // book.setStatus(scanner.nextLine());
-                // System.out.print("Rating: ");
-                // book.setRating(scanner.nextLine());
-                // System.out.print("Reflection: ");
-                // book.setReflection(scanner.nextLine());
                 String[] okay = {  "Title","Author","Publisher","Genres","Status","Rating","Reflection"};
                 FileIOManager.newBook(okay);
-                books = readBooks()
+                //books = readBooks()
 
             } else if (choice.equals("delete")) {
                 System.out.println("What to delete?");
                 String toBeDeleted = scanner.nextLine();
                 FileIOManager.deleteBook(toBeDeleted);
-                books = readBooks();
             } else {
                 break;
             }
@@ -61,7 +45,7 @@ public class Main {
         // Show All Reflections
         System.out.println("\n\nReflections List");
         for (Book book : books) {
-            System.out.println("\nReflection: " + book.desc[6]);
+            System.out.println("\nReflection: " + book.description[6]);
         }
 
         scanner.close();
