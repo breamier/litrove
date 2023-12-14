@@ -1,49 +1,12 @@
-public class Movie {
-    private String title;
-    private String actors;
-    private String director;
-    private String genre;
-    private String reflection;
+public class Movie extends Literature {
+    public static String[] defaultDesc = { "Title", "Main Actors", "Director", "Genre", "Rating", "Reflection" };
 
-    // Get Methods
-    public String getTitle() {
-        return title;
+    public Movie() {
+        super(defaultDesc, defaultDesc);
     }
 
-    public String getActors() {
-        return actors;
-    }
+    public Movie(String[] desc) {
+        super(defaultDesc, desc);
 
-    public String getDirector() {
-        return director;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public String getReflection() {
-        return reflection;
-    }
-
-    // Set Methods
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setActors(String actors) {
-        this.actors = actors;
-    }
-
-    public void setDirector(String director) {
-        this.director = director;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public void setReflection(String reflection) {
-        this.reflection = reflection;
     }
 }
