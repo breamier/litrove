@@ -5,15 +5,20 @@ public class LiteraturePanel extends JPanel{
     public String[] genres = {"fiction", "non-fiction", "fantasy", "sci-fi"};
     public String[] ratings = {"1","2","3","4","5"};
     public String[] status = {"to read","reading","read"};
-    public String[][] fields;
+    
+    public JComponent[] components;
+
+    public int size;
+    private String[][] fields;
     public LiteraturePanel(){
-        
+
     }
-    public LiteraturePanel(String[][] fields){
-        this.fields = fields;
+    public LiteraturePanel(String[][] field){
+        fields = field;
+        this.size = fields[0].length;
         setLayout(new BorderLayout());
         
-        JComponent[] components = createComponents(fields);
+        components = createComponents(fields);
         JPanel fieldPanel = new JPanel();
         fieldPanel.setLayout(new BoxLayout(fieldPanel, BoxLayout.Y_AXIS));
         addComponents(fieldPanel, components);
@@ -31,7 +36,6 @@ public class LiteraturePanel extends JPanel{
 
     JPanel addCheckboxes(String names[]){
         JPanel checkboxes = new JPanel();
-
         for(String name : names){
             checkboxes.add(new JCheckBox(name));
         }
@@ -39,7 +43,6 @@ public class LiteraturePanel extends JPanel{
     }
 
     public JLabel[] createLabels(String[] labels){
-        int size = labels.length;
         JLabel jlabels[]= new JLabel[size];
 
         for(int i = 0; i<size;i++){
@@ -49,7 +52,6 @@ public class LiteraturePanel extends JPanel{
     }
 
     public JComponent[] createComponents(String[][] fields){
-        int size = fields[0].length;
         JComponent comp[] = new JComponent[size];
         for(int i = 0;i<size;i++){
             String x = fields[1][i];
@@ -79,10 +81,42 @@ public class LiteraturePanel extends JPanel{
         return comp;
     }
     public void addComponents(JPanel panel,JComponent[] components){
-        int size = components.length;
         for(int i = 0; i<size;i++){
             panel.add(components[i]);
        }
+    }
+
+    public String getChecked(JPanel panel){
+        Component[] checkboxes=panel.getComponents();
+        String s="";
+        int compSize = checkboxes.length;
+        for(int i =0;i<compSize;i++){
+            JCheckBox a = (JCheckBox)checkboxes[i];
+            if(a.isSelected()){
+                s+=a.getText()+",";
+            }
+        }
+        return s.substring(0,s.length()-1);
+    }
+    public String[] getData(){
+        String[][] fields=this.fields;
+        String[] data= new String[size];
+        for(int i=0;i<size;i++){
+            switch(fields[1][i]){
+                case "textArea":
+                    data[i] = ((JTextArea)components[i]).getText();
+                    break;
+                case "textField":
+                    data[i] = ((JTextField)components[i]).getText();
+                    break;
+                case "checkboxes":
+                    data[i] = getChecked((JPanel)components[i]);
+                    break;
+                case "comboBox":
+                    data[i] = (String)((JComboBox)components[i]).getSelectedItem();
+            }   
+        }
+        return data;
     }
 
     LiteraturePanel generatePanel(String name){
@@ -100,7 +134,7 @@ public class LiteraturePanel extends JPanel{
             case "podcast":
                 return new PodcastPanel();
             default:
-                return new BookPanel();
+                return null;
         }
 
     }

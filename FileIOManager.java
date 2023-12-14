@@ -53,13 +53,13 @@ public class FileIOManager {
         List<Book> updateBooks = new ArrayList<>();
 
         for (Book book : books) {
-            if (!book.desc[0].equalsIgnoreCase(title)) {
+            if (!book.description[0].equalsIgnoreCase(title)) {
                 updateBooks.add(book);
             }
         }
         try (PrintWriter writer = new PrintWriter(new FileWriter(PATH_BOOKS))) {
             for (Book book : updateBooks) {
-                newBook(book.desc);
+                newBook(book.description);
             }    
         } catch (IOException e) {
             e.printStackTrace();

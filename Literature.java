@@ -1,53 +1,89 @@
 public class Literature{
     String[] litDefault;
-    String[] desc;
+    String[] description;
+
     public Literature(String[] litDefault, String[] desc){
         this.litDefault = litDefault;
-        this.desc = desc;
+        this.description = desc;
     }
-    // 
-    // Literature lit = new Literature();
-    // lit.getDesc();
 
-    // get("Title") return title na string
+    
     public String getDesc(String type){
         int index = 0;
         for (String description:litDefault){
             if (description.equals(type)){
-                return this.desc[index];
+                return this.description[index];
             }
             index += 1;
         }
         return "";
     }
+    
+    public String[] getDesc(){
+        return description;
+    }
 
     public void setDesc(String type, String name){
         int index = 0;
-        for (String description:litDefault){
-            if (description.equals(type)){
-                // return this.desc[index];
+        for (String a:litDefault){
+            if (a.equals(type)){
+                this.description[index] = name; 
             }
             index += 1;
         }
+    }
 
-        // insert replace the thingy on the .txt
+    public Literature generateLitObject(String type, String[] description){
+        switch (type) {
+            case "book":
+                return new Book(description);
+            case "movie":
+                return new Movie(description);
+            case "podcast":
+                return new Podcast(description);
+            case "article":
+                return new Article(description);
+            case "research":
+                return new Research(description);
+            default:
+                return new Literature(null,null);
+        }
     }
 }
 
 class Book extends Literature {
     // defaultDesc -> descType
     public static String[] defaultDesc = { "Title","Author","Publisher","Genres","Status","Rating","Reflection"};
-    public Book(){
-        super(defaultDesc,defaultDesc);
-    }
-    public Book(String[] desc){
-        super(defaultDesc,desc);
+    public Book(String[] description){
+        super(defaultDesc,description);
     }
 }
 
+class Movie extends Literature{
+    public static String[] defaultDesc = {"Title","Main Actors","Director","Genre","Rating","Reflection"};
+    public Movie(String[] description){
+        super(defaultDesc,description);
+    }
+}
 class Podcast extends Literature{
-    public static String[] defaultDesc ={"Title","Episode Title / Num","Creator","Rating","Reflection"};
-
-
+    public static String[] defaultDesc = {"Title","Episode Title / Num","Creator","Rating","Reflection"};
+    public Podcast(String[] description){
+        super(defaultDesc,description);
+    }
 }
+class Article extends Literature{
+    public static String[] defaultDesc = {"Title","Author","Reflection"};
+    public Article(String[] description){
+        super(defaultDesc,description);
+    }
+}
+class Research extends Literature{
+    public static String[] defaultDesc = {"Title","Authors","Date Published","DOI","Journal","Reflection"};
+    public Research(String[] description){
+        super(defaultDesc,description);
+    }
+}
+
+//Literature Factory
+
     

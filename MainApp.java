@@ -39,7 +39,7 @@ public class MainApp extends JFrame{
         cards.addCard(home, cardName[0]);
         cards.addCard(addLitPanel, cardName[1]);
 
-
+        setUndecorated(true);
         add(actions,BorderLayout.WEST);
         add(cards,BorderLayout.CENTER);
         pack();
