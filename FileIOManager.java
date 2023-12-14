@@ -7,12 +7,16 @@ public class FileIOManager {
     private static final String PATH_BOOKS = PATH_FOLDER + "books.txt";
 
     // Adds a new book to the file
-    public static void newBook(Book book) {
+    // Piage will also pass the literature type in stirng 
+    public static void newBook(String[] bookData) { // its gonna be litData bc not only book
+        String everything="";
+        for(String str:bookData){
+            everything+=str+"|";
+        }
+        everything = everything.substring(0,everything.length()-1);
+
         try (PrintWriter writer = new PrintWriter(new FileWriter(PATH_BOOKS, true))) {
-            writer.println(
-                    book.getTitle() + "|" + book.getAuthor() + "|" + book.getPublisher() + "|"
-                            + book.getGenre() + "|" + book.getStatus() + "|" + book.getRating() + "|"
-                            + book.getReflection());
+            writer.println(everything);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -25,14 +29,16 @@ public class FileIOManager {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split("\\|");
-                Book book = new Book();
-                book.setTitle(parts[0]);
-                book.setAuthor(parts[1]);
-                book.setPublisher(parts[2]);
-                book.setGenre(parts[3]);
-                book.setStatus(parts[4]);
-                book.setRating(parts[5]);
-                book.setReflection(parts[6]);
+                Book book = new Book(parts);
+                // Literature lit = lit.generateLiteratureObject(parts);
+
+                // book.setTitle(parts[0]);
+                // book.setAuthor(parts[1]);
+                // book.setPublisher(parts[2]);
+                // book.setGenre(parts[3]);
+                // book.setStatus(parts[4]);
+                // book.setRating(parts[5]);
+                // book.setReflection(parts[6]);
                 books.add(book);
             }
         } catch (IOException e) {
@@ -47,19 +53,18 @@ public class FileIOManager {
         List<Book> updateBooks = new ArrayList<>();
 
         for (Book book : books) {
-            if (!book.getTitle().equalsIgnoreCase(title)) {
+            if (!book.desc[0].equalsIgnoreCase(title)) {
                 updateBooks.add(book);
             }
         }
-
         try (PrintWriter writer = new PrintWriter(new FileWriter(PATH_BOOKS))) {
             for (Book book : updateBooks) {
-                writer.println(
-                        book.getTitle() + "|" + book.getAuthor() + "|" + book.getPublisher() + "|" + book.getGenre()
-                                + "|" + book.getStatus() + "|" + book.getRating() + "|" + book.getReflection());
-            }
+                newBook(book.desc);
+            }    
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    // Insert editBook(String oldName, String[] newDesc )
 }
