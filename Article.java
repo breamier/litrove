@@ -1,29 +1,13 @@
-public class Article {
-    private String title;
-    private String author;
-    private String reflection;
+public class Article extends Literature {
+    public static String[] defaultDesc = { "Title", "Author", "Reflection" };
 
-    public String getTitle() {
-        return title;
+    public Article() {
+        super(defaultDesc, defaultDesc);
     }
 
-    public String getAuthor() {
-        return author;
+    public Article(String[] desc) {
+        super(defaultDesc, desc);
+
     }
 
-    public String getReflection() {
-        return reflection;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public void setReflection(String reflection) {
-        this.reflection = reflection;
-    }
 }

@@ -1,39 +1,38 @@
-public class Literature{
+public class Literature {
     String[] litDefault;
     String[] description;
 
-    public Literature(String[] litDefault, String[] desc){
+    public Literature(String[] litDefault, String[] desc) {
         this.litDefault = litDefault;
         this.description = desc;
     }
 
-    
-    public String getDesc(String type){
+    public String getDesc(String type) {
         int index = 0;
-        for (String description:litDefault){
-            if (description.equals(type)){
+        for (String description : litDefault) {
+            if (description.equalsIgnoreCase(type)) {
                 return this.description[index];
             }
             index += 1;
         }
         return "";
     }
-    
-    public String[] getDesc(){
+
+    public String[] getDesc() {
         return description;
     }
 
-    public void setDesc(String type, String name){
+    public void setDesc(String type, String name) {
         int index = 0;
-        for (String a:litDefault){
-            if (a.equals(type)){
-                this.description[index] = name; 
+        for (String a : litDefault) {
+            if (a.equals(type)) {
+                this.description[index] = name;
             }
             index += 1;
         }
     }
 
-    public Literature generateLitObject(String type, String[] description){
+    public static Literature generateLitObject(String type, String[] description) {
         switch (type) {
             case "book":
                 return new Book(description);
@@ -46,44 +45,48 @@ public class Literature{
             case "research":
                 return new Research(description);
             default:
-                return new Literature(null,null);
+                return new Literature(null, null);
         }
     }
 }
 
 class Book extends Literature {
     // defaultDesc -> descType
-    public static String[] defaultDesc = { "Title","Author","Publisher","Genres","Status","Rating","Reflection"};
-    public Book(String[] description){
-        super(defaultDesc,description);
+    public static String[] defaultDesc = { "Title", "Author", "Publisher", "Genres", "Status", "Rating", "Reflection" };
+
+    public Book(String[] description) {
+        super(defaultDesc, description);
     }
 }
 
-class Movie extends Literature{
-    public static String[] defaultDesc = {"Title","Main Actors","Director","Genre","Rating","Reflection"};
-    public Movie(String[] description){
-        super(defaultDesc,description);
-    }
-}
-class Podcast extends Literature{
-    public static String[] defaultDesc = {"Title","Episode Title / Num","Creator","Rating","Reflection"};
-    public Podcast(String[] description){
-        super(defaultDesc,description);
-    }
-}
-class Article extends Literature{
-    public static String[] defaultDesc = {"Title","Author","Reflection"};
-    public Article(String[] description){
-        super(defaultDesc,description);
-    }
-}
-class Research extends Literature{
-    public static String[] defaultDesc = {"Title","Authors","Date Published","DOI","Journal","Reflection"};
-    public Research(String[] description){
-        super(defaultDesc,description);
+class Movie extends Literature {
+    public static String[] defaultDesc = { "Title", "Main Actors", "Director", "Genre", "Rating", "Reflection" };
+
+    public Movie(String[] description) {
+        super(defaultDesc, description);
     }
 }
 
-//Literature Factory
+class Podcast extends Literature {
+    public static String[] defaultDesc = { "Episode Title", "Podcast Name", "Creator", "Rating", "Reflection" };
 
-    
+    public Podcast(String[] description) {
+        super(defaultDesc, description);
+    }
+}
+
+class Article extends Literature {
+    public static String[] defaultDesc = { "Title", "Author", "Reflection" };
+
+    public Article(String[] description) {
+        super(defaultDesc, description);
+    }
+}
+
+class Research extends Literature {
+    public static String[] defaultDesc = { "Title", "Authors", "Year Published", "DOI", "Journal", "Reflection" };
+
+    public Research(String[] description) {
+        super(defaultDesc, description);
+    }
+}

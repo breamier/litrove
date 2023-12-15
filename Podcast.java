@@ -1,40 +1,12 @@
-public class Podcast {
-    private String title;
-    private String creator;
-    private String episode;
-    private String reflection;
+public class Podcast extends Literature {
+    public static String[] defaultDesc = {  "Episode Title / Num", "Title", "Creator", "Rating", "Reflection" };
 
-    // Get Methods
-    public String getTitle() {
-        return title;
+    public Podcast() {
+        super(defaultDesc, defaultDesc);
     }
 
-    public String getCreator() {
-        return creator;
-    }
+    public Podcast(String[] desc) {
+        super(defaultDesc, desc);
 
-    public String getEpisode() {
-        return episode;
-    }
-
-    public String getReflection() {
-        return reflection;
-    }
-
-    // Set Methods
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setCreator(String creator) {
-        this.creator = creator;
-    }
-
-    public void setEpisode(String episode) {
-        this.episode = episode;
-    }
-
-    public void setReflection(String reflection) {
-        this.reflection = reflection;
     }
 }

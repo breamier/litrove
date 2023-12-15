@@ -6,13 +6,12 @@ public class CardPanel extends JPanel{
     private CardLayout cl;
 
 
-    public CardPanel() throws IOException{
+    public CardPanel(){
         cl = new CardLayout();
         setLayout(cl);      
     }
 
     public void showCard(String value){
-        System.out.println(value);
         cl.show(this,value);
     }
     public void addCard(JPanel panel,String ref){
