@@ -25,6 +25,7 @@ public class LiteraturePanel extends JPanel{
         addComponents(this, fieldLabels,0,true);
         addComponents(this, components,1,false);
 
+
     }
 
     JPanel addCheckboxes(String names[]){
@@ -42,6 +43,7 @@ public class LiteraturePanel extends JPanel{
             JLabel temp = new JLabel(labels[i]);
             temp.setForeground(AppVars.getMain2());
             temp.setFont(new Font("Helvetica", Font.PLAIN, 14));
+
             jlabels[i] = temp;
         }
         return jlabels;
@@ -75,10 +77,12 @@ public class LiteraturePanel extends JPanel{
         }
         return comp;
     }
+
     public void addComponents(JPanel panel,JComponent[] components, int x, Boolean isLabel){
         GridBagConstraints g = AppVars.getGridBagConstraints();
         g.gridx = x;
         if(isLabel){g.weightx=0.1;}
+
         for(int i = 0; i<size;i++){ 
             g.gridy=i;
             panel.add(components[i],g);
@@ -142,6 +146,7 @@ public class LiteraturePanel extends JPanel{
 
 class BookPanel extends LiteraturePanel{
     static String fieldTitles[] = { "Title","Author","Publisher","Genres","Status","Rating","Reflection"};
+
     static String fieldTypes[] = {"textField","textField","textField","checkboxes","comboBox","comboBox","textArea"};
     public BookPanel(){
         super(fieldTitles,fieldTypes);
@@ -168,6 +173,7 @@ class ArticlePanel extends LiteraturePanel{
 class ResearchPanel extends LiteraturePanel{
     static String fieldTitles[] = { "Title", "Authors", "Year Published", "DOI", "Journal", "Reflection" };
     static String fieldTypes[] =   {"textField","textArea","textField","textField","textField","textArea"};
+
     
     public ResearchPanel(){
         super(fieldTitles,fieldTypes);
@@ -176,6 +182,7 @@ class ResearchPanel extends LiteraturePanel{
 class PodcastPanel extends LiteraturePanel{
     static String fieldTitles[] = { "Episode Title", "Podcast Name", "Creator", "Rating", "Reflection" };
     static String fieldTypes[] =  { "textField","textField","textField", "comboBox","textArea"};
+
     
     public PodcastPanel(){
         super(fieldTitles,fieldTypes);

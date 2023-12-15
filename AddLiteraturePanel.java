@@ -55,6 +55,7 @@ public class AddLiteraturePanel extends JPanel{
         }
         data = litPanels[i].getData();
         FileIOManager.newLit(types[i].toLowerCase(),data);
+
  
     }
     public void addAnother(){
