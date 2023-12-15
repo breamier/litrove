@@ -68,7 +68,7 @@ class Movie extends Literature {
 }
 
 class Podcast extends Literature {
-    public static String[] defaultDesc = { "Title", "Episode Title / Num", "Creator", "Rating", "Reflection" };
+    public static String[] defaultDesc = { "Episode Title", "Podcast Name", "Creator", "Rating", "Reflection" };
 
     public Podcast(String[] description) {
         super(defaultDesc, description);
@@ -84,7 +84,7 @@ class Article extends Literature {
 }
 
 class Research extends Literature {
-    public static String[] defaultDesc = { "Title", "Authors", "Date Published", "DOI", "Journal", "Reflection" };
+    public static String[] defaultDesc = { "Title", "Authors", "Year Published", "DOI", "Journal", "Reflection" };
 
     public Research(String[] description) {
         super(defaultDesc, description);

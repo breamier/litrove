@@ -7,7 +7,8 @@ public class MainApp extends JFrame{
     public void start() throws IOException{
         String[] cardName = {"Home Screen","Add Literature","View Literature","View Thoughts"};
         setLayout(new GridBagLayout());
-        GridBagConstraints g = AppVars.geGridBagConstraints();
+        GridBagConstraints g = AppVars.getGridBagConstraints();
+
         CardPanel cards = new CardPanel();
         
         JPanel actions = new JPanel();
@@ -41,9 +42,12 @@ public class MainApp extends JFrame{
         
         AddLiteraturePanel addLitPanel = new AddLiteraturePanel();
         HomePanel home = new HomePanel();
+        ViewLiteraturePanel viewLitPanel = new ViewLiteraturePanel();
 
         cards.addCard(home, cardName[0]);
         cards.addCard(addLitPanel, cardName[1]);
+        cards.add(viewLitPanel,cardName[2]);
+
         
         g.weightx =g.weighty=1;
         g.gridx = 0;

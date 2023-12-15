@@ -1,5 +1,5 @@
 public class Podcast extends Literature {
-    public static String[] defaultDesc = { "Title", "Episode Title / Num", "Creator", "Rating", "Reflection" };
+    public static String[] defaultDesc = {  "Episode Title / Num", "Title", "Creator", "Rating", "Reflection" };
 
     public Podcast() {
         super(defaultDesc, defaultDesc);

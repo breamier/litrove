@@ -9,7 +9,7 @@ public class AddLiteraturePanel extends JPanel{
     private int size = types.length;
     public AddLiteraturePanel() throws IOException{
         setLayout(new GridBagLayout());
-        GridBagConstraints g = AppVars.geGridBagConstraints();
+        GridBagConstraints g = AppVars.getGridBagConstraints();
         
         LiteraturePanel[] litPanels= new LiteraturePanel[size];
         CardPanel cards = new CardPanel();
@@ -54,11 +54,13 @@ public class AddLiteraturePanel extends JPanel{
             i+=1; 
         }
         data = litPanels[i].getData();
-        FileIOManager.newBook(data);
+        FileIOManager.newLit(types[i].toLowerCase(),data);
+
  
     }
     public void addAnother(){
 
     }
+    
 }
 

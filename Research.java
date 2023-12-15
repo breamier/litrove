@@ -1,5 +1,5 @@
 public class Research extends Literature {
-    public static String[] defaultDesc = { "Title", "Authors", "Date Published", "DOI", "Journal", "Reflection" };
+    public static String[] defaultDesc = { "Title", "Authors", "Year Published", "DOI", "Journal", "Reflection" };
 
     public Research() {
         super(defaultDesc, defaultDesc);
