@@ -2,11 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+
 public class MainApp extends JFrame{
     public void start() throws IOException{
         String[] cardName = {"Home Screen","Add Literature","View Literature","View Thoughts"};
-        setLayout(new BorderLayout());
-        
+        setLayout(new GridBagLayout());
+        GridBagConstraints g = AppVars.geGridBagConstraints();
         CardPanel cards = new CardPanel();
         
         JPanel actions = new JPanel();
@@ -21,15 +22,20 @@ public class MainApp extends JFrame{
         viewThoughts.addActionListener(e -> cards.showCard(cardName[3]));
         exit.addActionListener(e -> exitProgram());
 
-
-        actions.setLayout(new BoxLayout(actions, BoxLayout.Y_AXIS));
-        actions.add(homeB);
-        actions.add(addLit);
-        actions.add(viewLit);
-        actions.add(viewThoughts);
-        actions.add(exit);
-
-        actions.setBackground(Color.GRAY);
+        
+        actions.setLayout(new GridBagLayout());
+        g.weightx =g.weighty=0;
+        g.gridy=0;
+        actions.add(homeB,g);
+        g.gridy=1;
+        actions.add(addLit,g);
+        g.gridy=2;
+        actions.add(viewLit,g);
+        g.gridy=3;
+        actions.add(viewThoughts,g);
+        g.gridy=4;
+        actions.add(exit,g);
+        actions.setBackground(AppVars.getMain1());
 
 
         
@@ -38,16 +44,18 @@ public class MainApp extends JFrame{
 
         cards.addCard(home, cardName[0]);
         cards.addCard(addLitPanel, cardName[1]);
+        
+        g.weightx =g.weighty=1;
+        g.gridx = 0;
+        add(actions,g);
+        g.gridx = 1;
+        add(cards,g);
 
-        setUndecorated(true);
-        add(actions,BorderLayout.WEST);
-        add(cards,BorderLayout.CENTER);
+        setResizable(false);
         pack();
         setVisible(true);
+
         
-
-
-
     }
     public void exitProgram(){
         this.dispose();
