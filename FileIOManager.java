@@ -10,7 +10,7 @@ public class FileIOManager {
         Literature lit = Literature.generateLitObject(litType, data);
         String line = "";
         for (String str : lit.getDesc()) {
-            line += str + "|";
+            line += str.replace("\n", " ") + "|";
         }
         line = line.substring(0, line.length() - 1);
 
@@ -83,7 +83,7 @@ public class FileIOManager {
                 return literature;
             }
         }
-
         return null;
     }
+
 }
