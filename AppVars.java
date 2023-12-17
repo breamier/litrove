@@ -21,7 +21,9 @@ public class AppVars{
     public static Color getAccent2() {
         return accent2;
     }
+
     public static GridBagConstraints getGridBagConstraints(){
+
         g.gridx = 0;
         g.gridy = 0;
         g.fill = GridBagConstraints.BOTH;

@@ -28,7 +28,7 @@ public class Literature {
     public void setDesc(String type, String name) {
         int index = 0;
         for (String a : litDefault) {
-            if (a.equals(type)) {
+            if (a.equalsIgnoreCase(type)) {
                 this.description[index] = name;
             }
             index += 1;

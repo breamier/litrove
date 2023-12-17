@@ -13,13 +13,13 @@ public class Main {
             System.out.println("What to do? add/delete/edit/exit: ");
             String choice = scanner.nextLine();
             if (choice.equalsIgnoreCase("add")) {
-                String[] okay = { "A", "B", "C", "F", "finished", "5", "reflect" };
-                FileIOManager.newLit("book", okay);
+                String[] okay = { "Breaking Stereotypes", "Be Me Podcast", "Aimee", "3", "Very Nice" };
+                FileIOManager.newLit("podcast", okay);
 
             } else if (choice.equalsIgnoreCase("delete")) {
                 System.out.println("What to delete?");
                 String toBeDeleted = scanner.nextLine();
-                FileIOManager.deleteLit("book", toBeDeleted);
+                FileIOManager.deleteLit("podcast", toBeDeleted);
             } else if (choice.equalsIgnoreCase("edit")) {
                 System.out.println("What to edit?");
                 String toEdit = scanner.nextLine();
@@ -27,7 +27,7 @@ public class Main {
                 String descType = scanner.nextLine();
                 System.out.println("What to replace:");
                 String newDesc = scanner.nextLine();
-                FileIOManager.editLit("book", toEdit, descType, newDesc);
+                FileIOManager.editLit("podcast", toEdit, descType, newDesc);
             } else {
                 break;
             }
