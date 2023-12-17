@@ -22,6 +22,9 @@ public class Literature {
         return description;
     }
 
+    public String getDefault(int i){
+        return litDefault[i];
+    }
     public void setDesc(String type, String name) {
         int index = 0;
         for (String a : litDefault) {
@@ -60,7 +63,8 @@ class Book extends Literature {
 }
 
 class Movie extends Literature {
-    public static String[] defaultDesc = { "Title", "Main Actors", "Director", "Genre", "Rating", "Reflection" };
+    // defaultDesc -> descType
+    public static String[] defaultDesc = { "Title", "Author", "Publisher", "Genres", "Status", "Rating", "Reflection" };
 
     public Movie(String[] description) {
         super(defaultDesc, description);

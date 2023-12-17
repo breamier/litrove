@@ -13,7 +13,7 @@ public class ViewLiteraturePanel extends JPanel{
         GridBagConstraints g = AppVars.getGridBagConstraints();
         
         JPanel actions = new JPanel();
-        litComponents = new ViewLiteratureComponentsPanel(types[0],"d");
+        litComponents =
         JComboBox<String> litType = new JComboBox<String>(types);
 
         litType.addActionListener(e -> changeView(litType.getSelectedItem()+""));

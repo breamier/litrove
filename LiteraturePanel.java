@@ -10,7 +10,7 @@ public class LiteraturePanel extends JPanel{
     public JComponent[] components;
     public String fieldTitles[];
     public String fieldTypes[];
-
+    
     public int size;
     public LiteraturePanel(String[] fieldTitles, String[] fieldTypes){
         this.fieldTitles = fieldTitles;
@@ -41,7 +41,7 @@ public class LiteraturePanel extends JPanel{
         for(int i = 0; i<size;i++){
             JLabel temp = new JLabel(labels[i]);
             temp.setForeground(AppVars.getMain2());
-            temp.setFont(new Font("Helvetica", Font.PLAIN, 14));
+            temp.setFont(new Font("Helvetica", Font.PLAIN, 20));
             jlabels[i] = temp;
         }
         return jlabels;
@@ -120,17 +120,16 @@ public class LiteraturePanel extends JPanel{
     }
 
     public static LiteraturePanel generatePanel(String name){
-        name = name.toLowerCase();
         switch(name){
-            case "book":
+            case "Book":
                 return new BookPanel();
-            case "movie":
+            case "Movie":
                 return new MoviePanel();
-            case "article":
+            case "Article":
                 return new ArticlePanel();
-            case "research":
+            case "Research":
                 return new ResearchPanel();
-            case "podcast":
+            case "Podcast":
                 return new PodcastPanel();
             default:
                 return null;

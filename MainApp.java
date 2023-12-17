@@ -24,7 +24,7 @@ public class MainApp extends JFrame{
 
         
         actions.setLayout(new GridBagLayout());
-        g.weightx =g.weighty=0;
+        g.weightx = g.weighty=0;
         g.gridy=0;
         actions.add(homeB,g);
         g.gridy=1;
@@ -41,11 +41,9 @@ public class MainApp extends JFrame{
         
         AddLiteraturePanel addLitPanel = new AddLiteraturePanel();
         HomePanel home = new HomePanel();
-        ViewLiteraturePanel viewLitPanel = new ViewLiteraturePanel();
 
         cards.addCard(home, cardName[0]);
         cards.addCard(addLitPanel, cardName[1]);
-        cards.add(viewLitPanel,cardName[2]);
         
         g.weightx =g.weighty=1;
         g.gridx = 0;

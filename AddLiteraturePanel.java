@@ -10,7 +10,6 @@ public class AddLiteraturePanel extends JPanel{
     public AddLiteraturePanel() throws IOException{
         setLayout(new GridBagLayout());
         GridBagConstraints g = AppVars.getGridBagConstraints();
-        
         LiteraturePanel[] litPanels= new LiteraturePanel[size];
         CardPanel cards = new CardPanel();
         JPanel actions = new JPanel();

@@ -5,8 +5,16 @@ import java.io.IOException;
 
 
 public class HomePanel extends JPanel{
-    public HomePanel() throws IOException{
-        Image image = ImageIO.read(getClass().getResource("icon.png"));
+        
+    Image image;
+    public HomePanel(){
+        
+        try {
+            image = ImageIO.read(getClass().getResource("icon.png"));
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         image = image.getScaledInstance(120, 120,  java.awt.Image.SCALE_SMOOTH); 
         JLabel imageLabel = new JLabel(new ImageIcon(image));
         
