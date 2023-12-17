@@ -27,17 +27,19 @@ public class MainApp extends JFrame {
         homeB.setPreferredSize(new Dimension(50, 50));
 
         actions.setLayout(new GridBagLayout());
-        g.weightx = g.weighty = 0;
-        g.gridy = 0;
-        actions.add(homeB, g);
-        g.gridy = 1;
-        actions.add(addLit, g);
-        g.gridy = 2;
-        actions.add(viewLit, g);
-        g.gridy = 3;
-        actions.add(viewThoughts, g);
-        g.gridy = 4;
-        actions.add(exit, g);
+
+        g.weightx = g.weighty=0;
+        g.gridy=0;
+        actions.add(homeB,g);
+        g.gridy=1;
+        actions.add(addLit,g);
+        g.gridy=2;
+        actions.add(viewLit,g);
+        g.gridy=3;
+        actions.add(viewThoughts,g);
+        g.gridy=4;
+        actions.add(exit,g);
+
         actions.setBackground(AppVars.getMain1());
 
         AddLiteraturePanel addLitPanel = new AddLiteraturePanel();
@@ -47,6 +49,7 @@ public class MainApp extends JFrame {
         cards.addCard(addLitPanel, cardName[1]);
 
         g.weightx = g.weighty = 1;
+
         g.gridx = 0;
         add(actions, g);
         g.gridx = 1;
