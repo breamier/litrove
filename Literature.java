@@ -3,6 +3,7 @@ public class Literature {
     String[] description;
 
     public Literature(String[] litDefault, String[] desc) {
+        System.out.println(desc[0]);
         this.litDefault = litDefault;
         this.description = desc;
     }
@@ -19,7 +20,11 @@ public class Literature {
     }
 
     public String[] getDesc() {
+        System.out.println(description == null);
         return description;
+    }
+    public String[] getDescTitles(){
+        return litDefault;
     }
 
     public String getDefault(int i){
@@ -48,6 +53,7 @@ public class Literature {
             case "research":
                 return new Research(description);
             default:
+                System.out.println("WHY");
                 return new Literature(null, null);
         }
     }
