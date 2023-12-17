@@ -5,10 +5,12 @@ public class LiteratureBlock extends JPanel{
     String type;
     String title;
     String subDesc;
-    public LiteratureBlock(String type,String title, String subDesc){
+    MenuViewLiterature parent;
+    public LiteratureBlock(String type,String title, String subDesc, MenuViewLiterature parent){
         this.type = type;
         this.title = title;
         this.subDesc = subDesc;
+        this.parent = parent;
         System.out.println("Type: "+type);
         setLayout(new FlowLayout());
         JLabel titleLabel = new JLabel(title);
@@ -23,9 +25,12 @@ public class LiteratureBlock extends JPanel{
         add(view);
         add(delete);
     }
-    private void view(){}
+    private void view(){
+        parent.gotoLiterature(title, type);
+    }
     private void delete(){
         FileIOManager.deleteLit(type,title);
+        parent.update(type);
 
     }
 

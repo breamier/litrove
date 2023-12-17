@@ -28,6 +28,7 @@ public class FileIOManager {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split("\\|");
+                System.out.println(parts[0]);
                 Literature lit = Literature.generateLitObject(litType, parts);
                 literature.add(lit);
             }
@@ -79,7 +80,7 @@ public class FileIOManager {
         List<Literature> litList = readLit(litType);
 
         for (Literature literature : litList) {
-            if (literature.description[0].equalsIgnoreCase(title)) {
+            if (literature.description[0].equals(title)) {
                 return literature;
             }
         }
