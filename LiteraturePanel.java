@@ -10,7 +10,7 @@ public class LiteraturePanel extends JPanel{
     public JComponent[] components;
     public String fieldTitles[];
     public String fieldTypes[];
-    
+    public String fieldData[];    
     public int size;
     public LiteraturePanel(String[] fieldTitles, String[] fieldTypes){
         this.fieldTitles = fieldTitles;
@@ -24,8 +24,19 @@ public class LiteraturePanel extends JPanel{
         components = createComponents();
         addComponents(this, fieldLabels,0,true);
         addComponents(this, components,1,false);
-
-
+    }
+    public LiteraturePanel(String[] fieldTitles, String[] fieldTypes, String[] data){
+        this.fieldTitles = fieldTitles;
+        this.fieldTypes = fieldTypes;
+        this.size = fieldTitles.length;
+        
+        setLayout(new GridBagLayout());
+        
+        
+        JLabel[] fieldLabels = createLabels(fieldTitles);
+        components = createComponents(data);
+        addComponents(this, fieldLabels,0,true);
+        addComponents(this, components,1,false);
     }
 
     JPanel addCheckboxes(String names[]){
@@ -70,6 +81,39 @@ public class LiteraturePanel extends JPanel{
                             break;
                         case "Status":
                             comp[i] =new JComboBox<String>(status);
+                            break;
+                    }
+                    break;
+            }
+        }
+        return comp;
+    }
+    public JComponent[] createComponents(String[] data){
+        JComponent comp[] = new JComponent[size];
+        for(int i = 0;i<size;i++){
+            String x = fieldTypes[i];
+            switch(x){
+                case "textArea":
+                    comp[i] = new JTextArea(data[i]);
+                    break;
+                case "textField":
+                    comp[i] = new JTextField(data[i]);
+                    break;
+                case "checkboxes":
+                    comp[i] = addCheckboxes(genres);
+                    break;
+                case "comboBox":
+                    switch(fieldTitles[i]){
+                        case "Rating":
+                            JComboBox<String> tempR = new JComboBox<String>(ratings);
+                            tempR.setSelectedItem(data[i]);
+                            comp[i] = tempR;
+                            
+                            break;
+                        case "Status":
+                            JComboBox<String> tempS = new JComboBox<String>(status);
+                            tempS.setSelectedItem(data[i]);
+                            comp[i] = tempS;
                             break;
                     }
                     break;
@@ -140,6 +184,22 @@ public class LiteraturePanel extends JPanel{
         }
 
     }
+    public static LiteraturePanel generatePanel(String type, String[] data){
+            switch(type){
+            case "book":
+                return new BookPanel(data);
+            case "movie":
+                return new MoviePanel();
+            case "article":
+                return new ArticlePanel();
+            case "research":
+                return new ResearchPanel();
+            case "podcast":
+                return new PodcastPanel();
+            default:
+                return null;
+        }
+    }
 
 }
 
@@ -149,6 +209,9 @@ class BookPanel extends LiteraturePanel{
     static String fieldTypes[] = {"textField","textField","textField","checkboxes","comboBox","comboBox","textArea"};
     public BookPanel(){
         super(fieldTitles,fieldTypes);
+    }
+    public BookPanel(String[] data){
+        super(fieldTitles,fieldTypes,data);
     }
 }
 
