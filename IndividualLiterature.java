@@ -16,22 +16,7 @@ public class IndividualLiterature extends JPanel{
         this.parent = parent;
         System.out.println(descriptions == null);
         setLayout(new GridBagLayout());
-        JLabel title = new JLabel(descriptions[0]);
-
-        JButton edit = new JButton("Edit");
-        JButton back = new JButton("Back");
-        
-        back.addActionListener(e -> goBack());
-        g.weightx=0.3;
-        g.gridx = 0;
-        add(title,g);
-        addLabels();
-        g.gridy+=1;
-        add(back);
-        g.gridy+=1;
-        g.gridx=1;
-        add(edit);
-
+        showDescription();
     }
     public void addLabels(){
         int num = descriptions.length;
@@ -47,7 +32,48 @@ public class IndividualLiterature extends JPanel{
         parent.update(type);
     }
     public void goEdit(){
+        removeAll();
+        g.gridy=0;
+        g.gridx=0;
+        LiteraturePanel panel = LiteraturePanel.generatePanel(type,descriptions);
+        add(panel,g);
+        JButton save  = new JButton("Save");
+        save.addActionListener(e -> save(panel));
+        g.gridy=1;
+        add(save,g);
+        revalidate();
+        repaint();
 
+    }
+    public void save(LiteraturePanel panel){
+        String[] data = panel.getData();
+        int i = 0;
+        FileIOManager.deleteLit(type, descriptions[0]);
+        FileIOManager.newLit(type, data);
+        parent.gotoLiterature(data[0], type);
+
+
+    }
+    public void showDescription(){
+        removeAll();
+        JLabel title = new JLabel(descriptions[0]);
+
+        JButton edit = new JButton("Edit");
+        JButton back = new JButton("Back");
+        
+        back.addActionListener(e -> goBack());
+        edit.addActionListener(e -> goEdit());
+        g.weightx=0.3;
+        g.gridx = 0;
+        add(title,g);
+        addLabels();
+        g.gridy+=1;
+        add(back);
+        g.gridy+=1;
+        g.gridx=1;
+        add(edit);
+        revalidate();
+        repaint();
     }
 }
 
