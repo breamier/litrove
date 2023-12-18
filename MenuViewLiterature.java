@@ -4,20 +4,27 @@ import java.util.List;
 
 
 public class MenuViewLiterature extends JPanel{
-    private String[] types = {"Book","Movie","Article","Research","Podcast"};
+    private String[] types = {"book","movie","article","research","podcast"};
     JPanel actions;
     GridBagConstraints g;
-    public MenuViewLiterature(){
+    JComboBox<String> litChoice = new JComboBox<String>(types);
+    String litType;
+    public MenuViewLiterature(String litType){
+            this.litType = litType.toLowerCase();
             setLayout(new GridBagLayout());
             g = AppVars.getGridBagConstraints();
             actions = new JPanel();
-            JComboBox<String> litChoice = new JComboBox<String>(types);
-
             litChoice.addActionListener(e -> update(litChoice.getSelectedItem()+""));
             
+            
+
+
+
+            setLitType();
             actions.add(litChoice);
             g.gridy=0;
             add(actions,g);
+            generateList(litType);
     }
 
     public void generateList(String type){
@@ -40,7 +47,6 @@ public class MenuViewLiterature extends JPanel{
         removeAll();
         g.gridy=0;
         add(actions,g);
-        System.out.println(litType);
         generateList(lit);
             
         repaint();
@@ -54,9 +60,27 @@ public class MenuViewLiterature extends JPanel{
         String[] desc = lit.getDesc();
         System.out.println(desc == null);
         String[] descTitles = lit.getDescTitles();
-        add(new IndividualLiterature(desc,descTitles));
+        add(new IndividualLiterature(desc,descTitles,type,this));
         repaint();
         revalidate();
     }
 
+    public void setLitType(){
+        switch (litType) {
+            case "book":
+                litChoice.setSelectedIndex(0);
+                break;
+            case "movie":
+                litChoice.setSelectedIndex(1);
+                break;
+            case "article":
+                litChoice.setSelectedIndex(2);
+            case "research":
+                litChoice.setSelectedIndex(3);
+            case "podcast":
+                litChoice.setSelectedIndex(4);
+            default:
+                break;
+        }
+    }
 }

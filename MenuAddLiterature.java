@@ -51,7 +51,7 @@ public class MenuAddLiterature extends JPanel{
                         System.out.println(a);
                 }
                 FileIOManager.newLit(types[i].toLowerCase(), data);
-                parent.changeMenu("View Literature");
+                parent.changeMenu("View Literature",type);
         }
 
 

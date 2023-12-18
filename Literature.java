@@ -41,7 +41,7 @@ public class Literature {
     }
 
     public static Literature generateLitObject(String type, String[] description) {
-        switch (type) {
+        switch (type.toLowerCase()) {
             case "book":
                 return new Book(description);
             case "movie":
@@ -53,7 +53,8 @@ public class Literature {
             case "research":
                 return new Research(description);
             default:
-                System.out.println("WHY");
+
+                System.out.println("WHY:" + type);
                 return new Literature(null, null);
         }
     }
