@@ -5,7 +5,7 @@ import java.util.List;
 public class FileIOManager {
     private static final String PATH_FOLDER = "Literature/";
 
-    // Adds a new book to the file
+    // Add new literature
     public static void newLit(String litType, String[] data) {
         Literature lit = Literature.generateLitObject(litType, data);
         String line = "";
@@ -21,7 +21,7 @@ public class FileIOManager {
         }
     }
 
-    // Returns the list of books
+    // Returns the list of literature by type
     public static List<Literature> readLit(String litType) {
         List<Literature> literature = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(PATH_FOLDER + litType + ".txt"))) {
@@ -38,7 +38,7 @@ public class FileIOManager {
         return literature;
     }
 
-    // Deletes book when given the title
+    // Deletes literature when given the title
     public static void deleteLit(String litType, String title) {
         List<Literature> litList = readLit(litType);
         List<Literature> updateLit = new ArrayList<>();
@@ -57,6 +57,7 @@ public class FileIOManager {
         }
     }
 
+    // Edits existing literature
     public static void editLit(String litType, String oldTitle, String descType, String newDesc) {
         List<Literature> litList = readLit(litType);
 
@@ -76,6 +77,7 @@ public class FileIOManager {
         }
     }
 
+    // Searches through the literature type and titles
     public static Literature searchLit(String litType, String title) {
         List<Literature> litList = readLit(litType);
 
