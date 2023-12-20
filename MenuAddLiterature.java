@@ -34,18 +34,22 @@ public class MenuAddLiterature extends JPanel{
 
                 setLayout(new GridBagLayout());
                 g.gridy=0;
-                g.gridx=1;
+                g.gridx=0;
                 g.weightx = 0;
                 g.weighty = 0;
+                g.insets = new Insets(10,20,0,0);
                 add(title,g);
                 g.weightx =0;
                 g.weighty = 0;
                 g.gridy=1;
+                g.insets = new Insets(10,40,0,0);
                 add(actions,g);
+                g.insets = new Insets(0,0,0,0);
                 g.weighty = 1;
                 g.weightx = 1;
                 g.gridy=2;
                 add(labelsFields,g);
+                
 
         }
 
@@ -54,7 +58,8 @@ public class MenuAddLiterature extends JPanel{
                 this.remove(labelsFields);
                 labelsFields = LiteraturePanel.generatePanel(litType);
                 g.gridy=2;
-                g.gridx = 1;
+                g.gridx = 0;
+                g.weighty = 1;
                 add(labelsFields,g);
                 repaint();
                 revalidate();

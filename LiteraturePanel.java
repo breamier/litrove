@@ -125,12 +125,18 @@ public class LiteraturePanel extends JPanel{
     public void addComponents(JPanel panel,JComponent[] components, int x, Boolean isLabel){
         GridBagConstraints g = AppVars.getGridBagConstraints();
         g.gridx = x;
-        if(isLabel){g.weightx=0.1;}
+        g.weighty = 0;
+        g.insets = new Insets(5, 10, 5, 10);
+        if(isLabel){
+            g.weightx=0.1;
+
+        }
 
         for(int i = 0; i<size;i++){ 
             g.gridy=i;
             panel.add(components[i],g);
        }
+       g.insets = new Insets(0, 0, 0, 0);
     }
 
     public String getChecked(JPanel panel){
