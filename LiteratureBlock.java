@@ -1,19 +1,20 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class LiteratureBlock extends JPanel{
+public class LiteratureBlock extends JPanel {
     String type;
     String title;
     String subDesc;
     MenuViewLiterature parent;
-    public LiteratureBlock(String type,String title, String subDesc, MenuViewLiterature parent, boolean canDelete){
+
+    public LiteratureBlock(String type, String title, String subDesc, MenuViewLiterature parent, boolean canDelete) {
         this.type = type;
         this.title = title;
         this.subDesc = subDesc;
         this.parent = parent;
         setLayout(new FlowLayout());
-        JLabel titleLabel = new JLabel(title);
-        JLabel subDescLabel = new JLabel(subDesc);
+        DecoratedLabel titleLabel = new DecoratedLabel(title, "title");
+        DecoratedLabel subDescLabel = new DecoratedLabel(subDesc, "subtitle");
         JButton view = new JButton("View");
         JButton delete = new JButton("delete");
 
@@ -22,16 +23,19 @@ public class LiteratureBlock extends JPanel{
         add(titleLabel);
         add(subDescLabel);
         add(view);
-        if(canDelete){add(delete);}
+        if (canDelete) {
+            add(delete);
+        }
     }
-    private void view(){
+
+    private void view() {
         parent.gotoLiterature(title, type);
     }
-    private void delete(){
-        FileIOManager.deleteLit(type,title);
+
+    private void delete() {
+        FileIOManager.deleteLit(type, title);
         parent.update(type);
 
     }
-
 
 }
