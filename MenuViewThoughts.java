@@ -24,6 +24,9 @@ public class MenuViewThoughts extends MenuViewLiterature {
         g.gridy = 2;
         g.weighty = 1;
         add(scroller,g);
+        g.gridy = 3;
+        g.weighty = 0.1;
+        add(blank,g);
 
     }
 

@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 
 import java.awt.*;
 
@@ -28,18 +27,22 @@ public class LiteratureBlock extends JPanel {
         delete.addActionListener(e -> delete());
         add(titleLabel,g);
         if (canDelete) {
+            g.insets = new Insets(5,5,5,10);
             g.gridx=1;
             add(subDescLabel,g);
+            g.insets = new Insets(5,5,5,5);
             g.gridx=2;
             add(view);
             g.gridx=3;
             add(delete,g);
         }else{
+            g.insets = new Insets(5,5,5,5);
             g.gridy = 1;
             g.gridx = 0;
             add(subDescLabel,g);
             g.gridy = 0;
             g.gridx = 2;
+            g.gridheight = 2;
             add(view,g);
         }
 

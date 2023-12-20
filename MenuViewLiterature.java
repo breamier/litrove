@@ -12,6 +12,7 @@ public class MenuViewLiterature extends JPanel{
     JLabel title;
     JPanel panelMain;
     JScrollPane scroller;
+    JPanel blank = new JPanel();
     public MenuViewLiterature(String litType){
             this.litType = litType.toLowerCase();
             
@@ -55,6 +56,9 @@ public class MenuViewLiterature extends JPanel{
         g.gridy =2;
         g.weighty = 1;
         add(scroller,g);
+        g.gridy = 3;
+        g.weighty = 0.1;
+        add(blank,g);
 
     }
 
