@@ -189,13 +189,13 @@ public class LiteraturePanel extends JPanel{
             case "book":
                 return new BookPanel(data);
             case "movie":
-                return new MoviePanel();
+                return new MoviePanel(data);
             case "article":
-                return new ArticlePanel();
+                return new ArticlePanel(data);
             case "research":
-                return new ResearchPanel();
+                return new ResearchPanel(data);
             case "podcast":
-                return new PodcastPanel();
+                return new PodcastPanel(data);
             default:
                 return null;
         }
@@ -222,6 +222,9 @@ class MoviePanel extends LiteraturePanel{
     public MoviePanel(){
         super(fieldTitles,fieldTypes);
     }
+    public MoviePanel(String[] data){
+        super(fieldTitles,fieldTypes,data);
+    }
 }
 
 class ArticlePanel extends LiteraturePanel{
@@ -230,6 +233,9 @@ class ArticlePanel extends LiteraturePanel{
     
     public ArticlePanel(){
         super(fieldTitles,fieldTypes);
+    }
+    public ArticlePanel(String[] data){
+        super(fieldTitles,fieldTypes,data);
     }
 }
 class ResearchPanel extends LiteraturePanel{
@@ -240,6 +246,9 @@ class ResearchPanel extends LiteraturePanel{
     public ResearchPanel(){
         super(fieldTitles,fieldTypes);
     }
+    public ResearchPanel(String[] data){
+        super(fieldTitles,fieldTypes,data);
+    }
 }
 class PodcastPanel extends LiteraturePanel{
     static String fieldTitles[] = { "Episode Title", "Podcast Name", "Creator", "Rating", "Reflection" };
@@ -248,6 +257,9 @@ class PodcastPanel extends LiteraturePanel{
     
     public PodcastPanel(){
         super(fieldTitles,fieldTypes);
+    }
+    public PodcastPanel(String[] data){
+        super(fieldTitles,fieldTypes,data);
     }
 }
 
