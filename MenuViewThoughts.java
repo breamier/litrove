@@ -16,15 +16,20 @@ public class MenuViewThoughts extends MenuViewLiterature {
         for(Literature lit:litList){
             JPanel panel = new JPanel();
             String title = lit.getDefault(0);
-            panel = new LiteratureBlock(type,lit.getDesc(title),lit.getDesc("reflection"),this,false);
-            panelMain.add(panel,g);
+            String subtitle = lit.getDefault(1);
+            panel = new LiteratureBlock(type,lit.getDesc(title),lit.getDesc(subtitle),this,true);
+            panelMain.add(panel);
         }
-        JScrollPane scroller = new JScrollPane(panelMain);
+        scroller = new JScrollPane(panelMain);
         g.gridx =0;
-        g.gridy =2;
+        g.gridy = 2;
         g.weighty = 1;
         add(scroller,g);
-
+        JPanel blank = new JPanel();
+        g.gridy =3;
+        g.weighty = 0.1;
+        add(blank,g);
+        
     }
 
 }
