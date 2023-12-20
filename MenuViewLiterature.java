@@ -20,7 +20,7 @@ public class MenuViewLiterature extends JPanel{
             title = new DecoratedLabel("View Literature","title");
             title.setFont(new Font("Serif", Font.PLAIN, 30));
             
-            litChoice.setSelectedItem(litType);
+            litChoice.setSelectedItem(litType.toLowerCase());
             litChoice.addActionListener(e -> update(litChoice.getSelectedItem()+""));
             actions.add(litChoice);
             

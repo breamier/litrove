@@ -16,8 +16,7 @@ public class MenuViewThoughts extends MenuViewLiterature {
         for(Literature lit:litList){
             JPanel panel = new JPanel();
             String title = lit.getDefault(0);
-            String subtitle = lit.getDefault(1);
-            panel = new LiteratureBlock(type,lit.getDesc(title),lit.getDesc(subtitle),this,true);
+            panel = new LiteratureBlock(type,lit.getDesc(title),lit.getDesc("reflection"),this,false);
             panelMain.add(panel);
         }
         scroller = new JScrollPane(panelMain);
