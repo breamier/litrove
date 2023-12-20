@@ -8,26 +8,34 @@ public class MenuAddLiterature extends JPanel{
         JPanel actions;
         GridBagConstraints g;
         LiTroveGUI parent;
-        public MenuAddLiterature(LiTroveGUI parent){
-                this.parent = parent;
-                setLayout(new GridBagLayout());
-                g = AppVars.getGridBagConstraints();
-                labelsFields = LiteraturePanel.generatePanel(types[0]);
+        JLabel title;
+        public MenuAddLiterature(LiTroveGUI parent){                
                 JPanel actions = new JPanel();
                 JButton save = new JButton("Save");
                 JButton addAnother = new JButton("Add Another");
                 JComboBox<String> litChoice = new JComboBox<String>(types);
+                
+                this.parent = parent;
+                g = AppVars.getGridBagConstraints();
+                title = new JLabel("Add Your Literature.");
+                labelsFields = LiteraturePanel.generatePanel(types[0]);
+        
 
                 litChoice.addActionListener(e -> changeLiteraturefields(litChoice.getSelectedItem()+""));
                 save.addActionListener(e -> save(litChoice.getSelectedItem()+""));
                 addAnother.addActionListener(e -> addAnother(litChoice.getSelectedItem()+""));
+                
                 actions.add(litChoice);
                 actions.add(save);
                 actions.add(addAnother);
 
+                setLayout(new GridBagLayout());
                 g.gridy=0;
-                add(actions,g);
+                g.gridx=1;
+                add(title,g);
                 g.gridy=1;
+                add(actions,g);
+                g.gridy=2;
                 add(labelsFields,g);
 
         }

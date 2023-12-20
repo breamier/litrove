@@ -217,8 +217,8 @@ class BookPanel extends LiteraturePanel{
 }
 
 class MoviePanel extends LiteraturePanel{
-    static String fieldTitles[] = { "Title","Main Actors","Director","Genre","Rating","Reflection" };
-    static String fieldTypes[] =   {"textField","textArea","textField","checkboxes","comboBox","textArea"};
+    static String fieldTitles[] = { "Title","Director","Genre","Rating","Reflection" };
+    static String fieldTypes[] =   {"textField","textField","checkboxes","comboBox","textArea"};
     
     public MoviePanel(){
         super(fieldTitles,fieldTypes);
