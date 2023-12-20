@@ -69,7 +69,7 @@ class Book extends Literature {
 
 class Movie extends Literature {
     // defaultDesc -> descType
-    public static String[] defaultDesc = { "Title", "Main Actors", "Director", "Genre", "Rating", "Reflection" };
+    public static String[] defaultDesc = { "Title", "Director", "Genre", "Rating", "Reflection" };
 
     public Movie(String[] description) {
         super(defaultDesc, description);

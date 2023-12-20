@@ -4,6 +4,7 @@ import java.util.List;
 public class MenuViewThoughts extends MenuViewLiterature {
     MenuViewThoughts(String type) {
         super(type);
+        super.title.setText("View your thoughts");
     }
 
     @Override

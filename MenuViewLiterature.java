@@ -9,17 +9,25 @@ public class MenuViewLiterature extends JPanel{
     GridBagConstraints g;
     JComboBox<String> litChoice = new JComboBox<String>(types);
     String litType;
+    JLabel title;
     public MenuViewLiterature(String litType){
             this.litType = litType.toLowerCase();
-            setLayout(new GridBagLayout());
+            
             g = AppVars.getGridBagConstraints();
             actions = new JPanel();
+            title = new JLabel("View Literature");
+            
             litChoice.setSelectedItem(litType);
             litChoice.addActionListener(e -> update(litChoice.getSelectedItem()+""));
             actions.add(litChoice);
+            
+            setLayout(new GridBagLayout());
             g.gridy=0;
-            g.anchor= GridBagConstraints.PAGE_START;
+            g.anchor = GridBagConstraints.PAGE_START;
             add(actions,g);
+            g.gridy = 1;
+            add(title,g);
+            
             generateList(litType);
     }
 
