@@ -49,7 +49,7 @@ public class MenuAddLiterature extends JPanel{
                 g.weightx = 1;
                 g.gridy=2;
                 add(labelsFields,g);
-                
+
 
         }
 

@@ -41,7 +41,7 @@ public class MenuViewLiterature extends JPanel{
         List<Literature> litList = FileIOManager.readLit(type);
 
         panelMain = new JPanel();
-        panelMain.setLayout(new GridLayout());
+        panelMain.setLayout(new BoxLayout(panelMain, BoxLayout.Y_AXIS)); 
         for(Literature lit:litList){
             JPanel panel = new JPanel();
             String title = lit.getDefault(0);
@@ -49,10 +49,11 @@ public class MenuViewLiterature extends JPanel{
             panel = new LiteratureBlock(type,lit.getDesc(title),lit.getDesc(subtitle),this,true);
             panelMain.add(panel,g);
         }
+        JScrollPane scroller = new JScrollPane(panelMain);
         g.gridx =0;
         g.gridy =2;
         g.weighty = 1;
-        add(panelMain,g);
+        add(scroller,g);
 
     }
 
