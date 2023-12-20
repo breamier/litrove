@@ -14,15 +14,15 @@ public class LiTroveGUI extends JFrame {
 
         menu = new HomePanel();
         actions = new JPanel();
-        JButton homeB = new JButton("Home Screen");
-        JButton addLit = new JButton("Add Literature");
-        JButton viewLit = new JButton("View Literature");
-        JButton viewThoughts = new JButton("View Thoughts");
-        JButton exit = new JButton("Exit");
-        homeB.addActionListener(e -> changeMenu(homeB.getText(),"None"));
-        addLit.addActionListener(e -> changeMenu(addLit.getText(),"None"));
-        viewLit.addActionListener(e -> changeMenu(viewLit.getText(),"book"));
-        viewThoughts.addActionListener(e -> changeMenu(viewThoughts.getText(),"book"));
+        DecoratedButton homeB = new DecoratedButton("Home Screen");
+        DecoratedButton addLit = new DecoratedButton("Add Literature");
+        DecoratedButton viewLit = new DecoratedButton("View Literature");
+        DecoratedButton viewThoughts = new DecoratedButton("View Thoughts");
+        DecoratedButton exit = new DecoratedButton("Exit");
+        homeB.addActionListener(e -> changeMenu(homeB.getText(), "None"));
+        addLit.addActionListener(e -> changeMenu(addLit.getText(), "None"));
+        viewLit.addActionListener(e -> changeMenu(viewLit.getText(), "book"));
+        viewThoughts.addActionListener(e -> changeMenu(viewThoughts.getText(), "book"));
         exit.addActionListener(e -> exitProgram());
 
         actions.setLayout(new GridBagLayout());
@@ -46,8 +46,9 @@ public class LiTroveGUI extends JFrame {
         g.weightx = g.weighty = 1;
         add(menu, g);
         pack();
-        setSize(700, 500);
-        setResizable(true);
+        setSize(1000, 700);
+        setResizable(false);
+        setLocationRelativeTo(null);
         setVisible(true);
 
     }
@@ -67,7 +68,8 @@ public class LiTroveGUI extends JFrame {
                 break;
             case "View Thoughts":
                 menu = new MenuViewThoughts(litType);
-;            default:
+                ;
+            default:
                 break;
         }
 
