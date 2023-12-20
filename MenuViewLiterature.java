@@ -19,17 +19,16 @@ public class MenuViewLiterature extends JPanel{
             actions = new JPanel();
             title = new DecoratedLabel("View Literature","title");
             title.setFont(new Font("Serif", Font.PLAIN, 30));
-            litChoice.setSelectedItem(litType); 
-            litChoice.addActionListener(e -> update(litChoice.getSelectedItem()+""));
             
+            litChoice.setSelectedItem(litType);
+            litChoice.addActionListener(e -> update(litChoice.getSelectedItem()+""));
             actions.add(litChoice);
             
             setLayout(new GridBagLayout());
 
-            
             g.gridy=0;
             g.gridx=0;
-            g.weighty = 0;
+            g.weighty =0;
             add(title,g);
             g.gridy = 1;
             g.gridx = 0;
@@ -49,23 +48,27 @@ public class MenuViewLiterature extends JPanel{
             String title = lit.getDefault(0);
             String subtitle = lit.getDefault(1);
             panel = new LiteratureBlock(type,lit.getDesc(title),lit.getDesc(subtitle),this,true);
-            panelMain.add(panel);
+            panelMain.add(panel,g);
         }
         scroller = new JScrollPane(panelMain);
         g.gridx =0;
-        g.gridy = 2;
+        g.gridy =2;
         g.weighty = 1;
         add(scroller,g);
-        JPanel blank = new JPanel();
-        g.gridy =3;
-        g.weighty = 0.1;
-        add(blank,g);
-        
+
     }
 
     public void update(String litType){
         String lit = litType.toLowerCase();
-        remove(scroller);
+        removeAll();
+        g.gridy=0;
+        g.gridx=0;
+        g.weighty =0;
+        add(title,g);
+        g.gridy = 1;
+        g.gridx = 0;
+        g.weighty =0;
+        add(actions,g);
         generateList(lit);
         repaint();
         revalidate();

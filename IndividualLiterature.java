@@ -30,6 +30,7 @@ public class IndividualLiterature extends JPanel {
     }
 
     public void goBack() {
+        parent.remove(this);
         parent.update(type);
     }
 
