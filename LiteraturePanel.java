@@ -143,6 +143,7 @@ public class LiteraturePanel extends JPanel{
                 s+=a.getText()+",";
             }
         }
+        if(s.equals("")){return "";}
         return s.substring(0,s.length()-1);
     }
 

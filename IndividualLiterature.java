@@ -14,7 +14,6 @@ public class IndividualLiterature extends JPanel{
         this.size = descTitles.length;
         this.type = type;
         this.parent = parent;
-        System.out.println(descriptions == null);
         setLayout(new GridBagLayout());
         showDescription();
     }
