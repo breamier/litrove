@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.awt.*;
 
 public class LiteratureBlock extends JPanel {
@@ -17,21 +19,31 @@ public class LiteratureBlock extends JPanel {
         JButton view = new JButton("View");
         JButton delete = new JButton("delete");
 
+        setLayout(new GridBagLayout());
+        GridBagConstraints g = new GridBagConstraints();
+        g.insets = new Insets(0,0,0,0);
+        g.gridy = 0;
+        g.gridx = 0;
         view.addActionListener(e -> view());
         delete.addActionListener(e -> delete());
-        add(titleLabel);
+        add(titleLabel,g);
+
         
         if (canDelete) {
-            add(subDescLabel);
+            g.gridx=1;
+            add(subDescLabel,g);
+            g.gridx=2;
             add(view);
-            add(delete);
+            g.gridx=3;
+            add(delete,g);
         }else{
-            add(subDescLabel);
-            add(view);
+            g.gridy = 1;
+            g.gridx = 0;
+            add(subDescLabel,g);
+            g.gridy = 0;
+            g.gridx = 2;
+            add(view,g);
         }
-        
-        setLayout(new FlowLayout());
-        setPreferredSize(new Dimension(50,10));
         
     }
 

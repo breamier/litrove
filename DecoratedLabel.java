@@ -15,12 +15,12 @@ public class DecoratedLabel extends JLabel {
     }
 
     private void decorateTitle() {
-        setFont(new Font("Garamond", Font.BOLD, 15));
+        setFont(new Font("Garamond", Font.BOLD, 20));
         setForeground(AppVars.accent1);
     }
 
     private void decorateSubtitle() {
-        setFont(new Font("Garamond", Font.BOLD, 12));
+        setFont(new Font("Garamond", Font.BOLD, 15));
         setForeground(AppVars.accent2);
     }
 }
