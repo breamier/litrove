@@ -15,7 +15,7 @@ public class DecoratedLabel extends JLabel {
     }
 
     private void decorateTitle() {
-        setFont(new Font("Garamond", Font.BOLD, 15));
+        setFont(new Font("Garamond", Font.BOLD, 16));
         setForeground(AppVars.accent1);
     }
 

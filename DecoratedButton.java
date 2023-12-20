@@ -11,6 +11,9 @@ public class DecoratedButton extends JButton {
             case "additional":
                 decorateAdditionalButton();
                 break;
+            case "individual":
+                decorateIndividualButton();
+                break;
         }
 
     }
@@ -31,6 +34,16 @@ public class DecoratedButton extends JButton {
         setForeground(Color.WHITE);
         setBackground(AppVars.accent2);
         setPreferredSize(new Dimension(120, 35));
+        setBorder(BorderFactory.createRaisedBevelBorder());
+
+    }
+
+    // Decorates Individual Buttons
+    private void decorateIndividualButton() {
+        setFont(new Font("Arial", Font.BOLD, 12));
+        setForeground(Color.WHITE);
+        setBackground(AppVars.accent2);
+        setPreferredSize(new Dimension(50, 30));
         setBorder(BorderFactory.createRaisedBevelBorder());
 
     }
