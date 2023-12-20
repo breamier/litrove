@@ -14,25 +14,25 @@ public class LiteratureBlock extends JPanel {
         this.parent = parent;
         JLabel titleLabel = new DecoratedLabel(title, "title");
         JLabel subDescLabel = new DecoratedLabel(subDesc, "subtitle");
-        JButton view = new JButton("View");
-        JButton delete = new JButton("delete");
+        DecoratedButton view = new DecoratedButton("View", "individual");
+        DecoratedButton delete = new DecoratedButton("delete", "individual");
 
         view.addActionListener(e -> view());
         delete.addActionListener(e -> delete());
         add(titleLabel);
-        
+
         if (canDelete) {
             add(subDescLabel);
             add(view);
             add(delete);
-        }else{
+        } else {
             add(subDescLabel);
             add(view);
         }
-        
+
         setLayout(new FlowLayout());
-        setPreferredSize(new Dimension(50,10));
-        
+        setPreferredSize(new Dimension(50, 10));
+
     }
 
     private void view() {
