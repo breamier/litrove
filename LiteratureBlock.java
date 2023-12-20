@@ -16,8 +16,8 @@ public class LiteratureBlock extends JPanel {
         this.parent = parent;
         JLabel titleLabel = new DecoratedLabel(title, "title");
         JLabel subDescLabel = new DecoratedLabel(subDesc, "subtitle");
-        JButton view = new JButton("View");
-        JButton delete = new JButton("delete");
+        DecoratedButton view = new DecoratedButton("View", "individual");
+        DecoratedButton delete = new DecoratedButton("delete", "individual");
 
         setLayout(new GridBagLayout());
         GridBagConstraints g = new GridBagConstraints();
@@ -27,8 +27,6 @@ public class LiteratureBlock extends JPanel {
         view.addActionListener(e -> view());
         delete.addActionListener(e -> delete());
         add(titleLabel,g);
-
-        
         if (canDelete) {
             g.gridx=1;
             add(subDescLabel,g);
@@ -44,7 +42,7 @@ public class LiteratureBlock extends JPanel {
             g.gridx = 2;
             add(view,g);
         }
-        
+
     }
 
     private void view() {
