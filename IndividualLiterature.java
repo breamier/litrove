@@ -38,7 +38,7 @@ public class IndividualLiterature extends JPanel {
         removeAll();
         g.gridy = 0;
         g.gridx = 0;
-        LiteraturePanel panel = LiteraturePanel.generatePanel(type, descriptions);
+        LiteraturePanel panel = LiteraturePanel.generatePanel(type.toLowerCase(), descriptions);
         add(panel, g);
         JButton save = new JButton("Save");
         save.addActionListener(e -> save(panel));
