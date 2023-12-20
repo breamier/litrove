@@ -6,7 +6,7 @@ public class LiteratureBlock extends JPanel{
     String title;
     String subDesc;
     MenuViewLiterature parent;
-    public LiteratureBlock(String type,String title, String subDesc, MenuViewLiterature parent){
+    public LiteratureBlock(String type,String title, String subDesc, MenuViewLiterature parent, boolean canDelete){
         this.type = type;
         this.title = title;
         this.subDesc = subDesc;
@@ -23,7 +23,7 @@ public class LiteratureBlock extends JPanel{
         add(titleLabel);
         add(subDescLabel);
         add(view);
-        add(delete);
+        if(canDelete){add(delete);}
     }
     private void view(){
         parent.gotoLiterature(title, type);

@@ -12,7 +12,6 @@ public class HomePanel extends JPanel{
         try {
             image = ImageIO.read(getClass().getResource("icon.png"));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         image = image.getScaledInstance(120, 120,  java.awt.Image.SCALE_SMOOTH); 

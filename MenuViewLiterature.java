@@ -14,13 +14,8 @@ public class MenuViewLiterature extends JPanel{
             setLayout(new GridBagLayout());
             g = AppVars.getGridBagConstraints();
             actions = new JPanel();
+            litChoice.setSelectedItem(litType);
             litChoice.addActionListener(e -> update(litChoice.getSelectedItem()+""));
-            
-            
-
-
-
-            setLitType();
             actions.add(litChoice);
             g.gridy=0;
             add(actions,g);
@@ -34,8 +29,7 @@ public class MenuViewLiterature extends JPanel{
             JPanel panel = new JPanel();
             String title = lit.getDefault(0);
             String subtitle = lit.getDefault(1);
-            
-            panel = new LiteratureBlock(type,lit.getDesc(title),lit.getDesc(subtitle),this);
+            panel = new LiteratureBlock(type,lit.getDesc(title),lit.getDesc(subtitle),this,true);
             add(panel,g);
             g.gridy+=1;
         }
@@ -65,22 +59,4 @@ public class MenuViewLiterature extends JPanel{
         revalidate();
     }
 
-    public void setLitType(){
-        switch (litType) {
-            case "book":
-                litChoice.setSelectedIndex(0);
-                break;
-            case "movie":
-                litChoice.setSelectedIndex(1);
-                break;
-            case "article":
-                litChoice.setSelectedIndex(2);
-            case "research":
-                litChoice.setSelectedIndex(3);
-            case "podcast":
-                litChoice.setSelectedIndex(4);
-            default:
-                break;
-        }
-    }
 }

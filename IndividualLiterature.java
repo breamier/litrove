@@ -47,7 +47,6 @@ public class IndividualLiterature extends JPanel{
     }
     public void save(LiteraturePanel panel){
         String[] data = panel.getData();
-        int i = 0;
         FileIOManager.deleteLit(type, descriptions[0]);
         FileIOManager.newLit(type, data);
         parent.gotoLiterature(data[0], type);

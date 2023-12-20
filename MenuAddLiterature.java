@@ -20,6 +20,7 @@ public class MenuAddLiterature extends JPanel{
 
                 litChoice.addActionListener(e -> changeLiteraturefields(litChoice.getSelectedItem()+""));
                 save.addActionListener(e -> save(litChoice.getSelectedItem()+""));
+                addAnother.addActionListener(e -> addAnother(litChoice.getSelectedItem()+""));
                 actions.add(litChoice);
                 actions.add(save);
                 actions.add(addAnother);
@@ -47,11 +48,19 @@ public class MenuAddLiterature extends JPanel{
                     if(type.equals(types[i])){break;}
                     i+=1; 
                 }
-                for(String a:data){
-                        System.out.println(a);
-                }
-                FileIOManager.newLit(types[i].toLowerCase(), data);
+                FileIOManager.newLit(type.toLowerCase(), data);
                 parent.changeMenu("View Literature",type);
+        }
+
+        public void addAnother(String type){
+                String[] data = labelsFields.getData();
+                int i =0;
+                while(true){
+                        if(type.equals(types[i])){break;}
+                        i+=1;
+                }
+                FileIOManager.newLit(type, data);
+                changeLiteraturefields(type);
         }
 
 

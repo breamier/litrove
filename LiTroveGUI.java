@@ -22,7 +22,7 @@ public class LiTroveGUI extends JFrame{
         homeB.addActionListener(e -> changeMenu(homeB.getText(),"None"));
         addLit.addActionListener(e -> changeMenu(addLit.getText(),"None"));
         viewLit.addActionListener(e -> changeMenu(viewLit.getText(),"book"));
-        viewThoughts.addActionListener(e -> changeMenu(viewThoughts.getText(),"None"));
+        viewThoughts.addActionListener(e -> changeMenu(viewThoughts.getText(),"book"));
         exit.addActionListener(e -> exitProgram());
 
         actions.setLayout(new GridBagLayout());
@@ -66,7 +66,9 @@ public class LiTroveGUI extends JFrame{
             case "View Literature":
                 menu = new MenuViewLiterature(litType);
                 break;
-            default:
+            case "View Thoughts":
+                menu = new MenuViewThoughts(litType);
+;            default:
                 break;
         }
 
