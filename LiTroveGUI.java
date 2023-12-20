@@ -14,11 +14,11 @@ public class LiTroveGUI extends JFrame {
 
         menu = new HomePanel();
         actions = new JPanel();
-        DecoratedButton homeB = new DecoratedButton("Home Screen");
-        DecoratedButton addLit = new DecoratedButton("Add Literature");
-        DecoratedButton viewLit = new DecoratedButton("View Literature");
-        DecoratedButton viewThoughts = new DecoratedButton("View Thoughts");
-        DecoratedButton exit = new DecoratedButton("Exit");
+        DecoratedButton homeB = new DecoratedButton("Home Screen", "main");
+        DecoratedButton addLit = new DecoratedButton("Add Literature", "main");
+        DecoratedButton viewLit = new DecoratedButton("View Literature", "main");
+        DecoratedButton viewThoughts = new DecoratedButton("View Thoughts", "main");
+        DecoratedButton exit = new DecoratedButton("Exit", "main");
         homeB.addActionListener(e -> changeMenu(homeB.getText(), "None"));
         addLit.addActionListener(e -> changeMenu(addLit.getText(), "None"));
         viewLit.addActionListener(e -> changeMenu(viewLit.getText(), "book"));

@@ -14,7 +14,6 @@ public class HomePanel extends JPanel {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // image = image.getScaledInstance(700, 650, java.awt.Image.SCALE_SMOOTH);
         JLabel imageLabel = new JLabel(new ImageIcon(image));
 
         add(imageLabel);
