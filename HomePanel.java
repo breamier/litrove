@@ -3,20 +3,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+public class HomePanel extends JPanel {
 
-public class HomePanel extends JPanel{
-        
     Image image;
-    public HomePanel(){
-        
+
+    public HomePanel() {
+
         try {
-            image = ImageIO.read(getClass().getResource("icon.png"));
+            image = ImageIO.read(getClass().getResource("LiTrove.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        image = image.getScaledInstance(120, 120,  java.awt.Image.SCALE_SMOOTH); 
+        image = image.getScaledInstance(120, 120, java.awt.Image.SCALE_SMOOTH);
         JLabel imageLabel = new JLabel(new ImageIcon(image));
-        
+
         add(imageLabel);
         setBackground(AppVars.getMain2());
     }

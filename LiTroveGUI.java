@@ -2,13 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-
-public class LiTroveGUI extends JFrame{
+public class LiTroveGUI extends JFrame {
     LiTroveGUI app;
     JPanel menu;
     JPanel actions;
     GridBagConstraints g;
-    public void start(){
+
+    public void start() {
         setLayout(new GridBagLayout());
         g = AppVars.getGridBagConstraints();
 
@@ -26,34 +26,33 @@ public class LiTroveGUI extends JFrame{
         exit.addActionListener(e -> exitProgram());
 
         actions.setLayout(new GridBagLayout());
-        g.weightx = g.weighty=0;
-        g.gridy=0;
-        actions.add(homeB,g);
-        g.gridy=1;
-        actions.add(addLit,g);
-        g.gridy=2;
-        actions.add(viewLit,g);
-        g.gridy=3;
-        actions.add(viewThoughts,g);
-        g.gridy=4;
-        actions.add(exit,g);
+        g.weightx = g.weighty = 0;
+        g.gridy = 0;
+        actions.add(homeB, g);
+        g.gridy = 1;
+        actions.add(addLit, g);
+        g.gridy = 2;
+        actions.add(viewLit, g);
+        g.gridy = 3;
+        actions.add(viewThoughts, g);
+        g.gridy = 4;
+        actions.add(exit, g);
         actions.setBackground(AppVars.getMain1());
 
-        g.weightx =g.weighty=0;
+        g.weightx = g.weighty = 0;
         g.gridx = 0;
-        add(actions,g);
+        add(actions, g);
         g.gridx = 1;
-         g.weightx =g.weighty=1;
-        add(menu,g);
+        g.weightx = g.weighty = 1;
+        add(menu, g);
         pack();
-        setSize(700,500);
+        setSize(700, 500);
         setResizable(true);
         setVisible(true);
-        
-        
 
     }
-    public void changeMenu(String type, String litType){
+
+    public void changeMenu(String type, String litType) {
         this.remove(menu);
 
         switch (type) {
@@ -72,23 +71,23 @@ public class LiTroveGUI extends JFrame{
                 break;
         }
 
-        g.weightx = g.weighty=0;
+        g.weightx = g.weighty = 0;
         g.gridx = 0;
-        add(actions,g);
+        add(actions, g);
         g.gridx = 1;
-        g.weightx = g.weighty =1;
-        add(menu,g);
+        g.weightx = g.weighty = 1;
+        add(menu, g);
 
         this.repaint();
         this.revalidate();
-        
 
     }
 
-    private void exitProgram(){
+    private void exitProgram() {
         this.dispose();
     }
-    public static void main(String[] args) throws IOException{
+
+    public static void main(String[] args) throws IOException {
         LiTroveGUI app = new LiTroveGUI();
         app.start();
     }
