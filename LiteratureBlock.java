@@ -11,7 +11,6 @@ public class LiteratureBlock extends JPanel{
         this.title = title;
         this.subDesc = subDesc;
         this.parent = parent;
-        System.out.println("Type: "+type);
         setLayout(new FlowLayout());
         JLabel titleLabel = new JLabel(title);
         JLabel subDescLabel = new JLabel(subDesc);

@@ -28,7 +28,6 @@ public class FileIOManager {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split("\\|");
-                System.out.println(parts[0]);
                 Literature lit = Literature.generateLitObject(litType, parts);
                 literature.add(lit);
             }
